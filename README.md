@@ -180,16 +180,16 @@ The VM will restart.
 
 ### 10. Apply a Group Policy Object (GPO)
 1. On DC-VM → open Group Policy Management (gpmc.msc).
-2. Right-click your domain or OU → Create a GPO → Name: TestDesktopPolicy.
+2. Right-click your domain or OU → Create a GPO → Name: DesktopShortcutTest.
 3. Edit it → Example:
 
->  User Configuration → Policies → Administrative Templates → Desktop → Desktop → Desktop Wallpaper → set a wallpaper file path on the DC<br>  
+>  Computer Configuration → Preferences → Windows Settings → Shortcuts<br>  
   Link the GPO to the OU with the client in it.  
 
 4. On Client-VM, run:
 `gpupdate /force`
 
-5. Log out/in to see the effect.
+5. Watch the shortcut get added in real time.
 
 ## Part 4: Final Thoughts
 
@@ -202,4 +202,9 @@ The VM will restart.
 - Ensure both VMs are in the same VNet (ADLabVNet) and subnet (ADLabSubnet) for proper communication. (Very Important)
 - Bastion provides secure access; avoid exposing VMs to public IPs.
 - For production environments, configure additional security measures (e.g., Network Security Groups, backups).
+
+### Considerations For Future Projects
+- Policy updates are a lot simpler for an entire computer than at an individual user level as you don't have to worry about making
+  sure the correct user is picked. I would like to be able to work towards adding desktop backgrounds for users later on.
+- It would also be nice to be able to automate some of these edits once I am more familiar with Active Directory in general.
 
