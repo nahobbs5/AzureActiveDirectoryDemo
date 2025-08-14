@@ -2,9 +2,9 @@
 
 This project guides you through setting up an Azure Active Directory lab environment using the Azure Portal, including a Domain Controller and a Client VM connected to a custom domain (lab.local). The setup uses Azure resources to create a virtual network, VMs, and Bastion for secure connectivity.
 
-#Prerequisites
--An active Azure subscription
--Access to the Azure Portal ([https://portal.azure.com](url))
+# Prerequisites
+- An active Azure subscription
+- Access to the Azure Portal ([https://portal.azure.com](url))
 - Basic knowledge of Azure, Active Directory, and Windows Server administration
 
 # Setup Steps
@@ -35,12 +35,10 @@ Resource group: ADLabResourceGroup
 Name: ADLabVNet  
 Region: Same as resource group (e.g., East US).
 
-Under IP Addresses, set:
-IPv4 address space: 10.0.0.0/16
-Subnet name: ADLabSubnet
-Subnet address range: 10.0.1.0/24
-
-
+Under IP Addresses, set:  
+IPv4 address space: 10.0.0.0/16  
+Subnet name: ADLabSubnet  
+Subnet address range: 10.0.1.0/24  
 
 Click Review + Create, then Create.
 
@@ -157,35 +155,23 @@ The VM will restart.
 
 ### 7. Connect Client VM to the Domain
 
-Join the Client VM to the lab.local domain.
-Connect to Client-VM using Bastion.
-Set the DNS server to the Domain Controller’s private IP address:
-Open Control Panel > Network and Sharing Center > Change adapter settings.
-Right-click the network adapter > Properties > Select Internet Protocol Version 4 (TCP/IPv4) > Properties.
-Set Preferred DNS server to the DC-VM’s private IP (e.g., 10.0.1.4).
-Join the domain:
-Go to Control Panel > System and Security > System > Change settings > Change.
-Select Domain and enter lab.local.
-Provide domain admin credentials (e.g., lab.local\azureadmin).
-Restart the Client VM to apply changes.
+1. Join the Client VM to the lab.local domain.
+2. Connect to Client-VM using Bastion.
+3. Set the DNS server to the Domain Controller’s private IP address:
+4. Open Control Panel > Network and Sharing Center > Change adapter settings.
+5. Right-click the network adapter > Properties > Select Internet Protocol Version 4 (TCP/IPv4) > Properties.
+6. Set Preferred DNS server to the DC-VM’s private IP (e.g., 10.0.1.4).
+7. Join the domain:
+8. Go to Control Panel > System and Security > System > Change settings > Change.
+9. Select Domain and enter lab.local.
+10. Provide domain admin credentials (e.g., lab.local\azureadmin).
+11. Restart the Client VM to apply changes.
 
-Verification
-
-
-
-
-
-Log in to the Client VM with a domain account (e.g., lab.local\azureadmin).
-
-
-
-Open a Command Prompt and run:
-
-nltest /dsgetdc:lab.local
-
-
-
-Verify the output shows the Domain Controller details.
+### 8. Verification
+1. Log in to the Client VM with a domain account (e.g., lab.local\azureadmin).
+2. Open a Command Prompt and run:
+`nltest /dsgetdc:lab.local`
+3. Verify the output shows the Domain Controller details.
 
 ## Part 3: Exploring Active Directory
 
@@ -196,27 +182,22 @@ Verify the output shows the Domain Controller details.
 4. On the Client-VM → log out → log in as that domain user (LAB\username).
 
 ### 9. Create Organizational Units (OUs)
-
 1. In ADUC → Right-click your domain (lab.local) → New → Organizational Unit.
 2. Example: HR, IT, Servers.
 3. Move users and the client computer into the appropriate OU.
 
 ### 10. Apply a Group Policy Object (GPO)
-
 1. On DC-VM → open Group Policy Management (gpmc.msc).
-
 2. Right-click your domain or OU → Create a GPO → Name: TestDesktopPolicy.
-
 3. Edit it → Example:
 
-  User Configuration → Policies → Administrative Templates → Desktop → Desktop → Desktop Wallpaper → set a wallpaper file path on the DC.
+  User Configuration → Policies → Administrative Templates → Desktop → Desktop → Desktop Wallpaper → set a wallpaper file path on the DC  
+  Link the GPO to the OU with the client in it.  
 
-  Link the GPO to the OU with the client in it.
-
-  On Client-VM, run:
-
+4. On Client-VM, run:
 'gpupdate /force`
-4. Log out/in to see the effect.
+
+5. Log out/in to see the effect.
 
 ## Part 4: Final Thoughts
 
