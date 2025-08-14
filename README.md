@@ -13,11 +13,9 @@ This project guides you through setting up an Azure Active Directory lab environ
 
 ### 1. Create Resource Group
 
-Create a resource group to organize all resources for the lab.
+*Create a resource group to organize all resources for the lab.*
 
 In the Azure Portal, navigate to Resource Groups > Create.
-
-
 
 Enter:  
 Resource group: ADLabResourceGroup  
@@ -26,7 +24,7 @@ Click Review + Create, then Create.
 
 ### 2. Create Virtual Network (VNet)
 
-Set up a VNet to host the VMs.
+*Set up a VNet to host the VMs.*
 
 In the Azure Portal, go to Virtual Networks > Create.
 
@@ -57,7 +55,7 @@ Size: Standard_D2s_v3 (or adjust based on needs).
 
 
 
-Administrator account:
+Administrator account:  
 Username: AzureAdmin  
 Password: Set a strong password
 
@@ -74,7 +72,7 @@ Note the private IP address of the VM (e.g., 10.0.1.4) after deployment.
 
 ### 4. Connect with Azure Bastion
 
-Set up Azure Bastion for secure RDP access to the VMs.
+*Set up Azure Bastion for secure RDP access to the VMs.*
 
 In the Azure Portal, go to Bastion > Create.
 
@@ -106,7 +104,7 @@ Enter the VM’s admin credentials and connect via RDP.
 
 ### 5. Create Client VM
 
-Deploy a second VM (Client) on the same VNet.
+*Deploy a second VM (Client) on the same VNet.*
 
 In the Azure Portal, go to Virtual Machines > Create > Azure virtual machine.
 
@@ -134,22 +132,16 @@ Click Review + Create, then Create.
 ## ---Part Two: Connecting to Active Directory---
 ### 6. Install Active Directory Domain Services
 
-Promote the Domain Controller VM to a Domain Controller for lab.local.
+*Promote the Domain Controller VM to a Domain Controller for lab.local.*
 
-
-
-Connect to DC-VM using Bastion (Step 4).
-
-
-
-Open Server Manager > Add Roles and Features.
-Select Role-based or feature-based installation, then select DC-VM.
-Check Active Directory Domain Services and complete the installation.
-After installation, click the notification flag in Server Manager and select Promote this server to a domain controller.
-
-Choose Add a new forest, set:
+1. Connect to DC-VM using Bastion (See Step 4).
+2. Open Server Manager > Add Roles and Features.
+3. Select Role-based or feature-based installation, then select DC-VM.
+4. Check Active Directory Domain Services and complete the installation.
+5. After installation, click the notification flag in Server Manager and select Promote this server to a domain controller.
+6. Choose Add a new forest, set:
 `Root domain name: lab.local`
-Configure options (e.g., DNS, DSRM password), and complete the promotion process.
+7. Configure options (e.g., DNS, DSRM password), and complete the promotion process.
 
 The VM will restart.
 
@@ -202,12 +194,12 @@ The VM will restart.
 ## Part 4: Final Thoughts
 
 ### Cleanup
--To avoid incurring costs, delete the resource group when done:
--In the Azure Portal, go to Resource Groups > Select ADLabResourceGroup > Delete resource group.
--Confirm by typing the resource group name and clicking Delete.
+- To avoid incurring costs, delete the resource group when done:
+- In the Azure Portal, go to Resource Groups > Select ADLabResourceGroup > Delete resource group.
+- Confirm by typing the resource group name and clicking Delete.
 
 ### Notes
--Ensure both VMs are in the same VNet (ADLabVNet) and subnet (ADLabSubnet) for proper communication. (Very Important)
--Bastion provides secure access; avoid exposing VMs to public IPs.
--For production environments, configure additional security measures (e.g., Network Security Groups, backups).
+- Ensure both VMs are in the same VNet (ADLabVNet) and subnet (ADLabSubnet) for proper communication. (Very Important)
+- Bastion provides secure access; avoid exposing VMs to public IPs.
+- For production environments, configure additional security measures (e.g., Network Security Groups, backups).
 
