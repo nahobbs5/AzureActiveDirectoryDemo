@@ -9,7 +9,7 @@ This project guides you through setting up an Azure Active Directory lab environ
 
 # Setup Steps
 
-## ---Part One: Setting Up the Environment---
+## Part One: Setting Up the Environment
 
 ### 1. Create Resource Group
 
@@ -129,7 +129,7 @@ Subnet: ADLabSubnet
 
 Click Review + Create, then Create.
 
-## ---Part Two: Connecting to Active Directory---
+## Part Two: Connecting to Active Directory
 ### 6. Install Active Directory Domain Services
 
 *Promote the Domain Controller VM to a Domain Controller for lab.local.*
