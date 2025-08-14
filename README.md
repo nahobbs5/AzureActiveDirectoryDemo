@@ -191,11 +191,11 @@ The VM will restart.
 2. Right-click your domain or OU → Create a GPO → Name: TestDesktopPolicy.
 3. Edit it → Example:
 
-  User Configuration → Policies → Administrative Templates → Desktop → Desktop → Desktop Wallpaper → set a wallpaper file path on the DC  
+>  User Configuration → Policies → Administrative Templates → Desktop → Desktop → Desktop Wallpaper → set a wallpaper file path on the DC<br>  
   Link the GPO to the OU with the client in it.  
 
 4. On Client-VM, run:
-'gpupdate /force`
+`gpupdate /force`
 
 5. Log out/in to see the effect.
 
