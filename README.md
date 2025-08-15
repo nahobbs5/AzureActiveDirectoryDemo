@@ -17,7 +17,7 @@ This project guides you through setting up an Azure Active Directory lab environ
 
 In the Azure Portal, navigate to Resource Groups > Create.
 
-![Resource Groups](images/1ResourceGroup.png)
+![Resource Groups](images/1ResourceGroup.png)<br><br>
 
 ![Resource Group Tags](images/2ResourceGroupTag.png)
 _Optional Group Tags_
@@ -46,7 +46,7 @@ Subnet address range: 10.0.1.0/24
 
 Click Review + Create, then Create.
 
-![Create Virtual Network](images/3CreateVirtualNetwork.png)
+![Create Virtual Network](images/3CreateVirtualNetwork.png)<br><br>
 
 ![Vnet Custom Address](images/3.5VnetCustomAddress.png)
 
@@ -76,9 +76,9 @@ Click Review + Create, then Create.
 
 Note the private IP address of the VM (e.g., 10.1.0.4) after deployment.
 
-![Domain Controller VM](images/4CreateDomainControllerVM.png)
+![Domain Controller VM](images/4CreateDomainControllerVM.png)<br><br>
 
-![VM Size](images/5VMSize.png)
+![VM Size](images/5VMSize.png)<br><br>
 
 ![Domain Controller VM Network Settings](images/5-2DomainControllerVMNetworkingSettings.png)
 
@@ -154,9 +154,9 @@ Click Review + Create, then Create.
 
 The VM will restart.
 
-![Domain Controller Server Manager](images/7DomainControllerServerManager.png)
+![Domain Controller Server Manager](images/7DomainControllerServerManager.png)<br><br>
 
-![Active Directory Servor Roles](images/8AddingActiveDirectoryServorRoles.png)
+![Active Directory Servor Roles](images/8AddingActiveDirectoryServorRoles.png)<br><br>
 
 ![Confirm Installation Options](images/9ConfirmInstallOptions.png)
 
@@ -190,9 +190,9 @@ The VM will restart.
 3. Give them a simple password and uncheck “User must change password at next logon” for testing.
 4. On the Client-VM → log out → log in as that domain user (LAB\username).
 
-![AD New User](images/11ActiveDirectoryNewUser.png)
+![AD New User](images/11ActiveDirectoryNewUser.png)<br><br>
 
-![AD New User Settings](images/11-2ActiveDirectoryNewUserSettings.png)
+![AD New User Settings](images/11-2ActiveDirectoryNewUserSettings.png)<br><br>
 
 ![AD New User Setup Finish](images/11-3ActiveDirectoryNewUserFinish.png)
 
@@ -201,11 +201,11 @@ The VM will restart.
 2. Example: HR, IT, Servers.
 3. Move users and the client computer into the appropriate OU.
 
-![AD New Org Unit](images/12ActiveDirectoryNewOrgUnit.png)
+![AD New Org Unit](images/12ActiveDirectoryNewOrgUnit.png)<br><br>
 
-![AD New Org Naming Unit](images/12-2NewOrgUnitName.png)
+![AD New Org Naming Unit](images/12-2NewOrgUnitName.png)<br><br>
 
-![AD Move Objects Into Container](images/13MovingObjectsIntoContainer.png)
+![AD Move Objects Into Container](images/13MovingObjectsIntoContainer.png)<br><br>
 
 ![AD Create Objects in Domain](images/14CreatingObjectsInDomain.png)
 
@@ -222,7 +222,7 @@ The VM will restart.
 
 5. Watch the shortcut get added in real time.
 
-![GPO Shortcut Listing](images/15GroupPolicyObjectShortcutListing.png)
+![GPO Shortcut Listing](images/15GroupPolicyObjectShortcutListing.png)<br><br>
 
 ![Shortcut Icon Visible on Desktop](images/16GPO_UpdateAndIconVisible.png)
 
@@ -238,8 +238,8 @@ The VM will restart.
 - Bastion provides secure access; avoid exposing VMs to public IPs.
 - For production environments, configure additional security measures (e.g., Network Security Groups, backups).
 
-### Considerations For Future Projects
-- Policy updates are a lot simpler for an entire computer than at an individual user level as you don't have to worry about making
-  sure the correct user is picked. I would like to be able to work towards adding desktop backgrounds for users later on.
-- It would also be nice to be able to automate some of these edits once I am more familiar with Active Directory in general.
+### Considerations For Future Projects/Expansions
+- Policy updates are definitely simpler for an entire computer than at an individual user level.<br>
+  I would like to be able to work towards adding desktop backgrounds for users later on.
+- It would also be nice to be able to automate some of these edits once I am more familiar with Active Directory settings in general.
 
