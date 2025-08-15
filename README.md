@@ -194,10 +194,20 @@ The VM will restart.
 
 ![AD New User Settings](images/11-2ActiveDirectoryNewUserSettings.png)
 
+![AD New User Setup Finish](images/11-3ActiveDirectoryNewUserFinish.png)
+
 ### 9. Create Organizational Units (OUs)
 1. In ADUC → Right-click your domain (lab.local) → New → Organizational Unit.
 2. Example: HR, IT, Servers.
 3. Move users and the client computer into the appropriate OU.
+
+![AD New Org Unit](images/12ActiveDirectoryNewOrgUnit.png)
+
+![AD New Org Naming Unit](images/12-2NewOrgUnitName.png)
+
+![AD Move Objects Into Container](images/13MovingObjectsIntoContainer.png)
+
+![AD Create Objects in Domain](images/14CreatingObjectsInDomain.png)
 
 ### 10. Apply a Group Policy Object (GPO)
 1. On DC-VM → open Group Policy Management (gpmc.msc).
@@ -211,6 +221,10 @@ The VM will restart.
 `gpupdate /force`
 
 5. Watch the shortcut get added in real time.
+
+![GPO Shortcut Listing](images/15GroupPolicyObjectShortcutListing.png)
+
+![Shortcut Icon Visible on Desktop](images/16GPO_UpdateAndIconVisible.png)
 
 ## Part 4: Final Thoughts
 
