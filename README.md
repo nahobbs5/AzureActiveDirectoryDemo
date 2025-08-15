@@ -17,6 +17,12 @@ This project guides you through setting up an Azure Active Directory lab environ
 
 In the Azure Portal, navigate to Resource Groups > Create.
 
+![Resource Groups](images/1ResourceGroup.png)
+
+![Resource Group Tags](images/2ResourceGroupTag.png)
+_Optional Group Tags_
+
+
 Enter:  
 Resource group: ADLabResourceGroup  
 Region: Select a region (e.g., East US).  
@@ -40,6 +46,10 @@ Subnet address range: 10.0.1.0/24
 
 Click Review + Create, then Create.
 
+![Create Virtual Network](images/3CreateVirtualNetwork.png)
+
+![Vnet Custom Address](images/3.5VnetCustomAddress.png)
+
 ### 3. Create Domain Controller VM
 
 Deploy a VM running Windows Server 2022 to act as the Domain Controller.
@@ -53,8 +63,6 @@ Region: Same as resource group.
 Image: Windows Server 2022 Datacenter  
 Size: Standard_D2s_v3 (or adjust based on needs).  
 
-
-
 Administrator account:  
 Username: AzureAdmin  
 Password: Set a strong password
@@ -66,9 +74,14 @@ Subnet: ADLabSubnet
 
 Click Review + Create, then Create.
 
+Note the private IP address of the VM (e.g., 10.1.0.4) after deployment.
 
+![Domain Controller VM](images/4CreateDomainControllerVM.png)
 
-Note the private IP address of the VM (e.g., 10.0.1.4) after deployment.
+![VM Size](images/5VMSize.png)
+
+![Domain Controller VM Network Settings](images/5-2DomainControllerVMNetworkingSettings.png)
+
 
 ### 4. Connect with Azure Bastion
 
@@ -87,12 +100,7 @@ Virtual network: ADLabVNet
 
 
 Subnet: Create a new subnet named AzureBastionSubnet with address range 10.0.2.0/24.
-
-
-
 Public IP address: Create a new IP named BastionIP.
-
-
 
 Click Review + Create, then Create.
 
@@ -101,6 +109,8 @@ Click Review + Create, then Create.
 To connect:
 Go to Virtual Machines > Select DC-VM > Connect > Bastion.
 Enter the VM’s admin credentials and connect via RDP.
+
+![Bastion Setup](images/6Bastion.png)
 
 ### 5. Create Client VM
 
@@ -121,13 +131,12 @@ Password: Set a strong password
 
 
 
-Networking:
+Networking:  
 Virtual network: ADLabVNet  
-Subnet: ADLabSubnet
-
-
+Subnet: ADLabSubnet  
 
 Click Review + Create, then Create.
+
 
 ## Part Two: Connecting to Active Directory
 ### 6. Install Active Directory Domain Services
@@ -145,6 +154,12 @@ Click Review + Create, then Create.
 
 The VM will restart.
 
+![Domain Controller Server Manager](images/7DomainControllerServerManager.png)
+
+![Active Directory Servor Roles](images/8AddingActiveDirectoryServorRoles.png)
+
+![Confirm Installation Options](images/9ConfirmInstallOptions.png)
+
 ### 7. Connect Client VM to the Domain
 
 1. Join the Client VM to the lab.local domain.
@@ -159,6 +174,8 @@ The VM will restart.
 10. Provide domain admin credentials (e.g., lab.local\azureadmin).
 11. Restart the Client VM to apply changes.
 
+![Connect Client to Domain](images/10AddingClientToActiveDirectoryDomain.png)
+
 ### 8. Verification
 1. Log in to the Client VM with a domain account (e.g., lab.local\azureadmin).
 2. Open a Command Prompt and run:
@@ -172,6 +189,10 @@ The VM will restart.
 2. Right-click Users or create a new OU (e.g., ITDept) → New → User.
 3. Give them a simple password and uncheck “User must change password at next logon” for testing.
 4. On the Client-VM → log out → log in as that domain user (LAB\username).
+
+![AD New User](images/11ActiveDirectoryNewUser.png)
+
+![AD New User Settings](images/11-2ActiveDirectoryNewUserSettings.png)
 
 ### 9. Create Organizational Units (OUs)
 1. In ADUC → Right-click your domain (lab.local) → New → Organizational Unit.
