@@ -231,6 +231,7 @@ The VM will restart.
 ### Cleanup
 - To avoid incurring costs, delete the resource group when done:
 - In the Azure Portal, go to Resource Groups > Select ADLabResourceGroup > Delete resource group.
+- You can also choose to deallocate the VM if you want to use it again later. Don't leave it running when not in use.
 - Confirm by typing the resource group name and clicking Delete.
 
 ### Notes
@@ -242,4 +243,5 @@ The VM will restart.
 - Policy updates are definitely simpler for an entire computer than at an individual user level.<br>
   I would like to be able to work towards adding desktop backgrounds for users later on.
 - It would also be nice to be able to automate some of these edits once I am more familiar with Active Directory settings in general.
+- Enable Update manager policies
 
