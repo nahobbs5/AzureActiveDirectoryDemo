@@ -59,7 +59,7 @@ Resource group: `ADLabResourceGroup`
 Virtual machine name: `DC-VM`  
 Region: Same as resource group.  
 Image: `Windows Server 2022 Datacenter`  
-Size: `Standard_D2s_v3` (or adjust based on needs).  
+Size: `Standard_D2s_v3` (or adjust based on needs. B2s work well for lab environments).  
 
 Administrator account:  
 Username: `AzureAdmin`  
@@ -99,6 +99,8 @@ Go to **Virtual Machines > Select DC-VM > Connect > Bastion**.
 Enter the VM’s admin credentials and connect via RDP.  
 
 ℹ️ Bastion avoids assigning public IPs to VMs, reducing exposure compared to direct RDP.
+Note that you are charged for every hour the Bastion is active, regardless of whether you are
+running the VM.
 
 ![Bastion Setup](images/6Bastion.png)
 
