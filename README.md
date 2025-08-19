@@ -114,7 +114,7 @@ Resource group: `ADLabResourceGroup`
 Virtual machine name: `Client-VM`  
 Region: Same as resource group.  
 Image: `Windows Server 2022 Datacenter` (or Windows 10/11 Enterprise).  
-Size: `Standard_D2s_v3` (or adjust based on needs).  
+Size: `Standard_D2s_v3` (or adjust based on needs. B2s work well for lab environments).  
 
 Administrator account:  
 Username: `azureadmin`  
